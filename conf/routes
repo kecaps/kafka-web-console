@@ -11,11 +11,13 @@ GET           /zookeepers.json/:group                                      contr
 PUT           /zookeepers.json                                             controllers.Zookeeper.create()
 DELETE        /zookeepers.json/:name                                       controllers.Zookeeper.delete(name)
 
-GET           /topics                                                      controllers.Assets.at(path="/public", file="html/partials/topic/index.html")
-GET           /topics.json                                                 controllers.Topic.index()
-GET           /topics.json/:topic/:zookeeper                               controllers.Topic.show(topic, zookeeper)
-GET           /topics.json/:topic/:zookeeper/feed                          controllers.Topic.feed(topic, zookeeper)
-GET           /topics/:name/:zookeeper                                     controllers.IgnoreParamAssets.at(path="/public", file="html/partials/topic/show.html", name, zookeeper)
+GET           /topics                                             controllers.Assets.at(path="/public", file="html/partials/topic/index.html")
+GET           /topics.json                                        controllers.Topic.index()
+GET           /topics.json/:name/:zookeeper                       controllers.Topic.show(name, zookeeper)
+GET           /topics.json/:name/:zookeeper/feed                  controllers.Topic.feed(name, zookeeper)
+POST          /topics.json                                        controllers.Topic.create()
+DELETE        /topics.json/:name/:zookeeper                       controllers.Topic.delete(name, zookeeper)
+GET           /topics/:name/:zookeeper                            controllers.IgnoreParamAssets.at(path="/public", file="html/partials/topic/show.html", name, zookeeper)
 
 GET           /consumergroups.json/:consumerGroup/:topic/:zookeeper        controllers.ConsumerGroup.show(consumerGroup, topic, zookeeper)
 
