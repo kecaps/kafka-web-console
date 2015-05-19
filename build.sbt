@@ -11,16 +11,16 @@ resolvers ++= {
 libraryDependencies ++= Seq(
   jdbc,
   cache,
-  "org.squeryl" % "squeryl_2.10" % "0.9.5-6",
-  "com.twitter" % "util-zk_2.10" % "6.23.0",
-  "com.101tec" % "zkclient" % "0.3",
+  "org.squeryl" % "squeryl_2.10" % "0.9.5-7",
+  "com.twitter" % "util-zk_2.10" % "6.24.0",
+  "com.101tec" % "zkclient" % "0.5",
   // "com.twitter" % "finagle-core_2.10" % "6.15.0",
   "org.quartz-scheduler" % "quartz" % "2.2.1",
   "org.apache.kafka" % "kafka_2.10" % "0.8.2.1"
     exclude("javax.jms", "jms")
     exclude("com.sun.jdmk", "jmxtools")
     exclude("com.sun.jmx", "jmxri"),
-  "com.github.okapies" % "finagle-kafka_2.10" % "0.1.5"
+  "com.github.okapies" % "finagle-kafka_2.10" % "0.2.0"
 )
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
