@@ -308,6 +308,10 @@ private[kafka] class ZookeeperConsumerConnector(val config: ConsumerConfig,
       // The child change watchers will be set inside rebalance when we read the children list.
     }
 
+    @throws(classOf[Exception])
+    def handleSessionEstablishmentError(err: Throwable) {
+      info("Unable to establish session: " + err)
+    }
   }
 
   class ZKTopicPartitionChangeListener(val loadBalancerListener: ZKRebalancerListener, val keyDecoder: Decoder[_],
