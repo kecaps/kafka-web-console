@@ -174,7 +174,7 @@ object Topic extends Controller {
 
         import org.I0Itec.zkclient.ZkClient
 
-        val zk = models.Zookeeper.findById(zookeeper).get
+        val zk = models.Zookeeper.findByName(zookeeper).get
 
         val zkClient = new ZkClient(zk.host+":"+zk.port, 30000, 30000, ZKStringSerializer)
         try {
@@ -196,7 +196,7 @@ object Topic extends Controller {
 
     import org.I0Itec.zkclient.ZkClient
 
-    val zk = models.Zookeeper.findById(zookeeper).get
+    val zk = models.Zookeeper.findByName(zookeeper).get
 
     val zkClient = new ZkClient(zk.host+":"+zk.port, 30000, 30000, ZKStringSerializer)
     try {
